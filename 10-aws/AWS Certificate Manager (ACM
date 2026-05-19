@@ -1,0 +1,18 @@
+AWS Certificate Manager (ACM) is a service that simplifies the process of provisioning, managing, and deploying SSL/TLS certificates for use with AWS services and your internal resources. It helps secure network communications and establish the identity of websites and applications.
+
+Key Features
+Automatic Certificate Provisioning: Easily request public or private SSL/TLS certificates.
+Managed Renewal: ACM automatically renews certificates before they expire.
+Free Public Certificates: AWS provides free SSL/TLS certificates for use with supported services.
+Integration with AWS Services: Works seamlessly with Elastic Load Balancing, CloudFront, API Gateway, and more.
+Private CA Support: Create and manage private certificates with AWS Certificate Manager Private Certificate Authority.
+
+How It Works
+Request a Certificate:
+Public certificates (for internet-facing apps).
+Private certificates (for internal apps, using ACM Private CA).
+Validate Domain Ownership:
+DNS validation (preferred, automated).
+Email validation (manual).
+Deploy Certificate: Attach it to AWS services like ALB, CloudFront, or API Gateway.
+Automatic Renewal: ACM renews certificates before expiration, reducing manual effort.
