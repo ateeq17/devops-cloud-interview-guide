@@ -1,4 +1,3 @@
-AWS WAF (Web Application Firewall)
 Purpose: Filters and monitors HTTP/HTTPS traffic to your applications.
 Key Features:
 Protects against SQL injection, cross-site scripting (XSS), and bot traffic.
