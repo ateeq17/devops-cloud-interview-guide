@@ -1,0 +1,44 @@
+🛠️ Troubleshooting Flow
+1. Are you using Application Load Balancer (ALB/ELB)?
+✅ Check Target Health:
+Go to EC2 → Target Groups → Health Checks.
+Ensure backend instances are healthy and responding.
+✅ Verify Ports:
+Backend app must listen on the same port configured in the target group.
+✅ Timeouts:
+Align backend keep-alive settings with ALB (default 60s).
+✅ Security Groups/NACLs:
+Confirm inbound/outbound rules allow traffic between ALB and instances.
+2. Are you using API Gateway + Lambda?
+✅ Response Format: Lambda must return a properly formatted JSON object:
+json
+{
+  "isBase64Encoded": false,
+  "statusCode": 200,
+  "headers": { "Content-Type": "application/json" },
+  "body": "{\"message\":\"Success\"}"
+}
+✅ Permissions: Ensure API Gateway has IAM permission to invoke Lambda.
+✅ Timeouts: Check Lambda timeout vs. API Gateway timeout (default 29s).
+✅ Logs: Review CloudWatch logs for Lambda errors.
+
+3. Are you using Nginx/EC2 Reverse Proxy?
+✅ Upstream Config: Confirm Nginx points to the correct internal IP/port.
+✅ Backend Service: Ensure app (Node.js, Python, etc.) is running and healthy.
+✅ Environment Variables: Load .env properly (PM2 doesn’t auto-load).
+✅ Database Connectivity: Test DB connection manually; update SGs if blocked.
+
+🚨 Best Practices to Prevent 502 Errors
+Always enable CloudWatch logging for visibility.
+Use health checks with realistic thresholds.
+Standardize timeouts across load balancers and backend apps.
+Automate environment variable loading (e.g., with dotenv or SSM Parameter Store).
+For APIs, validate response format before deploying.
+
+🛠️ How to Resolve Them
+Networking: Double-check VPC, subnet, and SG rules; use VPC Endpoints for private AWS service access.
+Gateway Errors: Align backend timeouts with ALB/API Gateway; ensure Lambda/API responses are correctly formatted.
+Scaling: Implement Auto Scaling groups and CloudFront caching; monitor with CloudWatch.
+Application Bugs: Use CloudWatch Logs and X-Ray for tracing; enforce proper error handling.
+Security: Apply AWS WAF + Shield; enforce ACM certificates; use IAM least privilege.
+Deployment: Automate testing in CI/CD pipelines; use CodeDeploy with health checks for safe rollouts.
