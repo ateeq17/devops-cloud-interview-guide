@@ -1,0 +1,17 @@
+*AWS Site-to-Site VPN*
+Connectivity Type	Encrypted IPsec tunnel over the public internet
+Quick (hours to a few days)	
+Bandwidth limited by internet connection; latency varies
+Dependent on internet stability
+Encrypted tunnel (IPsec)	
+Lower cost, pay for data transfer	
+Small/medium workloads, quick hybrid setup, DR connectivity	
+
+*Direct Connect*
+Dedicated private fiber link between your data center and AWS
+Longer (weeks to months, requires telecom provider)
+High bandwidth (1–100 Gbps); consistent low latency
+Very reliable, SLA-backed
+Private link (no internet exposure); can combine with VPN for encryption
+Higher cost (port charges + cross-connect fees)
+Enterprise workloads, real-time apps, large data transfers, compliance needs
