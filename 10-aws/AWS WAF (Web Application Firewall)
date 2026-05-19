@@ -1,0 +1,8 @@
+AWS WAF (Web Application Firewall)
+Purpose: Filters and monitors HTTP/HTTPS traffic to your applications.
+Key Features:
+Protects against SQL injection, cross-site scripting (XSS), and bot traffic.
+Allows creation of custom rules or use of AWS-managed rule groups.
+Integrates with Amazon CloudFront, Application Load Balancer (ALB), API Gateway, AppSync, Cognito, and Amplify.
+Can block, allow, or count requests based on conditions like IP, country, query strings, or headers.
+Use Case Example: An e-commerce site can block bots scraping product data while allowing legitimate customers to browse.
