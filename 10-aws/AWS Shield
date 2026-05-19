@@ -1,0 +1,8 @@
+Purpose: Protects AWS workloads from DDoS attacks.
+
+Types:
+Shield Standard: Free, automatically included for all AWS customers. Protects against common Layer 3/4 DDoS attacks.
+Shield Advanced: Paid tier with enhanced protection, real-time attack visibility, cost protection against scaling charges, and access to the AWS DDoS Response Team (DRT).
+
+Use Case Example: 
+During a product launch, if your site is hit with a massive DDoS attack, Shield absorbs the traffic to keep your application online.
