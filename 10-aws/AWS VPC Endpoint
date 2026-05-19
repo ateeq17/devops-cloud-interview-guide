@@ -1,0 +1,18 @@
+AWS VPC Endpoint is a service that allows you to privately connect your VPC to supported AWS services and VPC endpoint services, without requiring an internet gateway, NAT device, VPN, or Direct Connect. Traffic stays entirely within the AWS network, improving security and reducing costs.
+
+Key Features
+Private Connectivity: Access AWS services without exposing traffic to the public internet.
+Secure: Traffic never leaves the AWS backbone.
+Cost-Effective: Avoid NAT Gateway data processing charges for AWS service traffic.
+Two Types of Endpoints:
+Interface Endpoints (powered by PrivateLink):
+Elastic network interfaces (ENIs) in your subnet.
+Used for services like S3, DynamoDB, CloudWatch, API Gateway, etc.
+Gateway Endpoints:
+Route table entries that direct traffic to specific AWS services.
+Currently available only for Amazon S3 and DynamoDB.
+
+How It Works
+Create a VPC Endpoint for the desired AWS service.
+Update Route Tables / DNS: Configure routing so traffic destined for the service goes through the endpoint.
+Access Service Privately: Instances in your VPC connect to the service without using public IPs or internet gateways.
