@@ -1,0 +1,19 @@
+Amazon Route 53 is AWS’s highly available and scalable Domain Name System (DNS) web service. It’s designed to route end-user requests to applications running on AWS or elsewhere, with features that go beyond traditional DNS.
+
+Key Features
+Domain Registration: Register new domain names directly in Route 53.
+DNS Service: Host DNS zones and manage records (A, AAAA, CNAME, MX, TXT, etc.).
+Traffic Routing Policies:
+Simple Routing: Directs traffic to a single resource.
+Weighted Routing: Distributes traffic based on percentages (great for A/B testing).
+Latency-Based Routing: Sends users to the region with the lowest latency.
+Geolocation Routing: Routes based on user’s geographic location.
+Failover Routing: Provides high availability by redirecting traffic if a resource fails.
+Health Checks & Monitoring: Automatically reroutes traffic away from unhealthy endpoints.
+Integration with AWS Services: Works seamlessly with CloudFront, S3, EC2, ELB, and more.
+
+Use Cases
+Website Hosting: Manage DNS for websites hosted on AWS or external servers.
+Global Applications: Use latency-based routing to improve performance for worldwide users.
+Disaster Recovery: Failover routing ensures continuity during outages.
+Hybrid Cloud: Route traffic between AWS and on-premises environments.
