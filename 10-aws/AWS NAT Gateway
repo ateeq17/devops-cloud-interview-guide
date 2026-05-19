@@ -1,0 +1,16 @@
+AWS NAT Gateway is a managed service that allows instances in a private subnet of your VPC to connect to the internet (or other AWS services) while preventing inbound connections from the internet. It’s essentially a secure “doorway” for outbound traffic.
+
+Key Features
+Outbound Internet Access: Lets private subnet resources (like EC2 instances) access the internet for updates, patches, or APIs.
+Managed Service: AWS handles availability, scaling, and maintenance.
+High Availability: Can be deployed in multiple Availability Zones for redundancy.
+Elastic Scaling: Automatically scales up to 45 Gbps.
+Secure: Blocks unsolicited inbound traffic.
+
+How It Works
+Deploy NAT Gateway in a public subnet.
+Associate with Elastic IP (EIP): Provides a fixed IP for outbound traffic.
+Update Route Tables: Private subnet routes point to the NAT Gateway for internet-bound traffic.
+Traffic Flow:
+Private instance → NAT Gateway → Internet
+Internet → NAT Gateway → Blocked (no inbound access)
