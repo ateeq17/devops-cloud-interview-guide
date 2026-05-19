@@ -1,0 +1,15 @@
+AWS Organizations is a service that helps you centrally manage and govern multiple AWS accounts. It’s especially useful for enterprises, startups, or any team that needs to operate with multiple accounts but still maintain control, security, and cost efficiency.
+
+Key Features of AWS Organizations
+Multi-Account Management: Create and manage multiple AWS accounts under a single organization.
+Consolidated Billing: Combine usage across accounts for volume discounts and a single bill.
+Service Control Policies (SCPs): Apply guardrails to accounts, restricting what services or actions can be used.
+Organizational Units (OUs): Group accounts into hierarchies (e.g., by department, environment, or project).
+Centralized Governance: Manage compliance, security, and policies across all accounts.
+Integration with AWS Services: Works with AWS Control Tower, IAM Identity Center, and other governance/security tools.
+
+Common Use Cases
+Enterprise Setup: Separate accounts for dev, test, and production environments.
+Cost Management: Track spending per team/project while benefiting from consolidated billing.
+Security & Compliance: Enforce policies across accounts to meet regulatory requirements.
+Delegated Administration: Assign specific accounts to manage services like security or logging
