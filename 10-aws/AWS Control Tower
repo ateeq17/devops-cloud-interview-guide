@@ -1,0 +1,13 @@
+AWS Control Tower is a service that helps you set up and govern a secure, multi-account AWS environment based on best practices. Think of it as a "management layer" that makes AWS Organizations easier to use, with built-in guardrails, automation, and governance tools.
+
+Key Features of AWS Control Tower
+Landing Zone Setup: Automatically creates a well-architected multi-account environment with baseline security and compliance.
+Guardrails: Preconfigured preventive and detective rules (like mandatory logging, encryption, and region restrictions).
+Account Factory: Automates the creation of new accounts with standardized configurations.
+Centralized Dashboard: Provides visibility into compliance status across accounts.
+Integration: Works with AWS Organizations, IAM Identity Center, AWS Config, CloudTrail, and Security Hub.
+
+Types of Guardrails in Control Tower
+Mandatory Guardrails: Always enforced (e.g., CloudTrail logging enabled).
+Strongly Recommended Guardrails: Best practices you can enable (e.g., disallow public S3 buckets).
+Elective Guardrails: Optional, depending on your organization’s needs.
