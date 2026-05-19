@@ -1,0 +1,31 @@
+AWS Lambda is a serverless compute service that lets you run code without provisioning or managing servers. You simply upload your code, and Lambda executes it in response to events, automatically scaling as needed.
+
+🔑 Key Features
+Event-Driven Execution: Runs code in response to triggers (e.g., S3 uploads, DynamoDB updates, API Gateway requests).
+Automatic Scaling: Handles from a few requests per day to thousands per second.
+Pay-as-You-Go: You’re billed only for the compute time used (per millisecond).
+Multi-Language Support: Supports Node.js, Python, Java, Go, .NET, Ruby, and custom runtimes.
+Integrations: Works seamlessly with AWS services like S3, DynamoDB, CloudWatch, and Step Functions.
+
+⚙️ How It Works
+Upload Code: Package your function and upload it to Lambda.
+Set Trigger: Define an event source (e.g., API Gateway, S3 bucket, CloudWatch event).
+Execution: Lambda runs your function when the event occurs.
+Scaling: Automatically scales up or down based on demand.
+Monitoring: Logs and metrics available in CloudWatch.
+
+✅ Use Cases
+Web Applications: Backend logic triggered by API Gateway.
+Data Processing: Process files uploaded to S3 (e.g., image resizing, log analysis).
+Automation: Scheduled tasks like backups or notifications.
+IoT Applications: Handle device data streams.
+Microservices: Build lightweight, independent services.
+
+🚀 Example
+Suppose you want to process images uploaded to an S3 bucket:
+
+Configure an S3 event trigger for Lambda.
+Lambda function resizes the image and stores it in another bucket.
+No servers to manage, and it scales automatically with uploads.
+
+👉 In short, AWS Lambda is perfect for event-driven, lightweight workloads where you don’t want to manage servers.
