@@ -1,0 +1,13 @@
+AWS VPC Peering is a networking connection between two Virtual Private Clouds (VPCs) that allows you to route traffic between them privately using their internal IP addresses, without going through the public internet. It’s like creating a secure “bridge” between two separate networks.
+
+Key Features
+Private Communication: Traffic stays within the AWS network backbone.
+Cross-Account & Cross-Region: You can peer VPCs across different AWS accounts and regions.
+No Bandwidth Bottlenecks: Uses AWS’s high-speed backbone, not a single gateway.
+Simple Setup: Just create a peering connection and update route tables.
+
+How It Works
+Create a Peering Connection: Between two VPCs (same or different accounts/regions).
+Accept the Request: The owner of the other VPC must approve.
+Update Route Tables: Add routes so traffic destined for the peer VPC goes through the peering connection.
+Configure Security Groups/NACLs: Allow traffic between instances in both VPCs.
