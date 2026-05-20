@@ -11,3 +11,37 @@ Types of Guardrails in Control Tower
 Mandatory Guardrails: Always enforced (e.g., CloudTrail logging enabled).
 Strongly Recommended Guardrails: Best practices you can enable (e.g., disallow public S3 buckets).
 Elective Guardrails: Optional, depending on your organization’s needs.
+
+Steps to Create an Account in Control Tower
+1. Log in to the Management Account
+Sign in to the AWS Management Console with administrator access to your Control Tower management account.
+Navigate to AWS Control Tower service.
+
+2. Open Account Factory
+In the Control Tower dashboard, choose Account Factory.
+Account Factory is built on AWS Service Catalog and provides a template for new accounts.
+
+3. Provision a New Account
+Click Provision new account.
+You’ll be redirected to the Service Catalog where the Account Factory product is listed.
+
+4. Fill in Account Details
+Provide the required information:
+Account Name → Friendly name for the account.
+Email Address → Unique email for the new AWS account (must not be used in another AWS account).
+SSO User → Assign an IAM Identity Center (SSO) user or group to administer the account.
+Organizational Unit (OU) → Select the OU where the account should reside (e.g., Sandbox, Production).
+VPC Configuration (optional) → If enabled, Control Tower can provision a default VPC.
+
+5. Launch the Account
+Review the configuration and click Launch Product.
+Control Tower provisions the account, applies guardrails, and integrates it into your organization.
+
+6. Monitor Progress
+Go back to the Control Tower Dashboard.
+The new account will appear under Accounts with a status (e.g., Enrolled, In Progress).
+Once complete, the account is ready to use with baseline security and governance applied.
+
+7. Access the New Account
+Log in via AWS IAM Identity Center (SSO) using the assigned user/group.
+The account inherits Control Tower guardrails (e.g., CloudTrail enabled, disallow public S3 buckets).
