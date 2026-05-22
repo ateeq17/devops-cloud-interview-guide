@@ -1,0 +1,165 @@
+Kubernetes RBAC (Role‑Based Access Control) is the primary mechanism to enforce fine‑grained access control in clusters. It defines who can perform what actions on which resources, using Roles, ClusterRoles, and Bindings.
+
+🔑 Core Concepts
+Authentication vs Authorization:
+Authentication = who is making the request (user, group, service account).
+Authorization = what they are allowed to do (verbs on resources).
+
+RBAC Objects:
+Role: Namespace‑scoped permissions.
+ClusterRole: Cluster‑wide or reusable permission sets.
+RoleBinding: Grants a Role/ClusterRole to subjects in one namespace.
+ClusterRoleBinding: Grants a ClusterRole to subjects across the cluster.
+
+⚙️ Example YAMLs
+Role (namespace‑scoped):
+
+yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: team-a
+  name: pod-reader
+rules:
+- apiGroups: [""]
+  resources: ["pods"]
+  verbs: ["get", "list", "watch"]
+RoleBinding (attach Role to a group):
+
+yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: pod-reader-binding
+  namespace: team-a
+subjects:
+- kind: Group
+  name: team-a-developers
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: pod-reader
+  apiGroup: rbac.authorization.k8s.io
+ClusterRole (cluster‑wide):
+
+yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: cluster-admin-lite
+rules:
+- apiGroups: [""]
+  resources: ["nodes", "namespaces"]
+  verbs: ["get", "list"]
+ClusterRoleBinding (attach ClusterRole globally):
+
+yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: cluster-admin-lite-binding
+subjects:
+- kind: User
+  name: alice@example.com
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: cluster-admin-lite
+  apiGroup: rbac.authorization.k8s.io
+
+✅ Best Practices
+Least Privilege: Grant only required verbs/resources. Avoid wildcards (*) unless justified.
+Service Accounts: Use dedicated service accounts per workload; disable default token mounting if not needed.
+Audit & Review: Regularly run kubectl get role,rolebinding and kubectl get clusterrole,clusterrolebinding to detect stale or over‑permissive bindings.
+Critical Permissions: Restrict access to secrets, pods/exec, and impersonation.
+
+Validation: Use kubectl auth can-i <verb> <resource> to test permissions.
+
+Kubernetes Service Accounts are special accounts used by pods to authenticate against the Kubernetes API. Instead of using human user credentials, workloads inside the cluster use service accounts to securely interact with cluster resources.
+
+🔑 Key Concepts
+Default Service Account: Every namespace has a default service account automatically created. Pods use it unless another is specified.
+Custom Service Accounts: You can create service accounts for specific workloads to enforce least privilege.
+Authentication: Pods get a token mounted into them (by default) that identifies the service account.
+Authorization: RBAC roles/rolebindings are attached to service accounts to define what actions they can perform.
+
+⚙️ Example YAMLs
+Create a Service Account:
+
+yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: app-sa
+  namespace: dev
+Bind Service Account to Role:
+
+yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: dev
+  name: pod-reader
+rules:
+- apiGroups: [""]
+  resources: ["pods"]
+  verbs: ["get", "list"]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: pod-reader-binding
+  namespace: dev
+subjects:
+- kind: ServiceAccount
+  name: app-sa
+  namespace: dev
+roleRef:
+  kind: Role
+  name: pod-reader
+  apiGroup: rbac.authorization.k8s.io
+Use Service Account in a Pod:
+
+yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sample-pod
+  namespace: dev
+spec:
+  serviceAccountName: app-sa
+  containers:
+  - name: myapp
+    image: nginx
+
+✅ Best Practices
+Least Privilege: Assign only required permissions via RBAC.
+Disable Default Token Mounting: If a pod doesn’t need API access, set automountServiceAccountToken: false.
+IRSA in EKS: Use IAM Roles for Service Accounts to grant AWS permissions directly to pods (instead of broad node IAM roles).
+Namespace Isolation: Create service accounts per namespace to avoid cross‑namespace privilege escalation.
+Audit: Regularly check which service accounts are bound to high‑privilege roles.
+
+🎯 Interview‑Style Q&A
+Q: Why do we use service accounts in Kubernetes?
+A: To give workloads (pods) a secure identity for interacting with the Kubernetes API, separate from human users. This enables fine‑grained RBAC control and avoids exposing user credentials inside pods.
+
+Q: How do service accounts integrate with AWS EKS?
+A: In EKS, service accounts can be linked to IAM roles using IRSA (IAM Roles for Service Accounts). This allows pods to securely access AWS services (like S3, DynamoDB) with scoped permissions, without giving node‑level IAM roles broad access.
+
+Q: How do you enforce least privilege with service accounts?
+A: By creating dedicated service accounts per workload, binding them only to the RBAC roles they need, and disabling default token mounting for pods that don’t require API access.
+
+👉 In short: Service accounts are the identity mechanism for pods, and when combined with RBAC (and IRSA in EKS), they enforce least privilege and secure workload‑to‑API interactions.
+
+🎯 Interview‑Style Q&A
+Q: How does RBAC improve Kubernetes security?
+A: It enforces least privilege by ensuring users and workloads can only perform authorized actions. This reduces blast radius if credentials are compromised.
+
+Q: Difference between Role and ClusterRole?
+A: Role is namespace‑scoped; ClusterRole is cluster‑scoped or reusable across namespaces.
+
+Q: How do you troubleshoot RBAC issues?
+A: Use kubectl auth can-i to simulate requests, check Role/Binding definitions, and confirm subject identities (user, group, service account).
+
+👉 In short: Kubernetes RBAC is the cornerstone of cluster security. Roles/ClusterRoles define permissions, Bindings assign them, and best practices ensure least privilege and auditability.
