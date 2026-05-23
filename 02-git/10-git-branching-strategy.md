@@ -12,6 +12,28 @@ In my company, we followed a well-structured Git branching model similar to the 
 - `release/*` – for preparing and testing production releases  
 - `hotfix/*` – for urgent bug fixes or patches to production
 
+main
+The default branch representing stable code.
+Always deployable and protected with CI/CD checks.
+Only accepts merges from tested release/* or urgent hotfix/* branches.
+
+feature/*
+Used for developing new features or enhancements.
+Each feature branch is short-lived and tied to a specific task or story.
+Developers open pull requests to merge into main once peer-reviewed and tested.
+
+release/*
+Created when preparing for a production release.
+Serves as a staging area for final testing, bug fixes, and documentation updates.
+Once validated, merged into main and tagged for deployment.
+
+hotfix/*
+Reserved for urgent patches to production.
+Enables rapid response to critical issues without disrupting ongoing development.
+After resolution, merged back into both main and relevant release/* branches to maintain consistency.
+
+
+
 This helped us maintain stability while enabling parallel development and quick recovery from issues.
 
 ### 📘 Detailed Explanation  
