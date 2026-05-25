@@ -1,0 +1,5 @@
+Terraform Import
+terraform plan -generate-config-out=generated resources.tf
+A file will be created with the name generated resources.tf
+Copy the info from generated resources.tf to main.tf or resource.tf
+run terraform import aws_instancce.example i-0689324983648260 (run terraform import followed by resource name and resource id)
