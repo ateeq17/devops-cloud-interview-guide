@@ -1,0 +1,9 @@
+terraform plan → Compares the desired state (code) with the actual state (cloud).
+terraform refresh → Updates the state file with the latest real-world values.
+terraform state list → Shows resources tracked by Terraform.
+Handling Drift
+Identify: Run terraform plan regularly to catch mismatches.
+Decide: Either accept the manual change (update Terraform code) or revert it (apply Terraform to overwrite).
+Fix:
+If the manual change is valid → update .tf files and run terraform apply.
+If invalid → run terraform apply to restore the desired state.
