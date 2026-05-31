@@ -31,15 +31,18 @@ storage optimization and CloudFront caching to reduce data transfer costs.
 
 🔄 Automation & IaC
 Q: How do you ensure consistency in infrastructure deployments?
-A: I use Terraform or CloudFormation templates stored in source control. CI/CD pipelines validate and deploy infrastructure changes. Drift detection is automated, and changes are peer‑reviewed before merge. This ensures reproducibility and compliance across environments.
+A: I use Terraform or CloudFormation templates stored in source control. CI/CD pipelines validate and deploy infrastructure changes. Drift detection is automated, and changes are peer‑reviewed before merge. 
+This ensures reproducibility and compliance across environments.
 
 🧩 Containers & Modernization
 Q: How do you decide between ECS, EKS, and Lambda for workloads?
-A: For simple containerized apps, ECS Fargate is cost‑effective. For Kubernetes‑native workloads, EKS provides flexibility. For event‑driven, short‑lived tasks, Lambda is ideal. I evaluate based on workload characteristics, team skillset, and operational overhead.
+A: For simple containerized apps, ECS Fargate is cost‑effective. For Kubernetes‑native workloads, EKS provides flexibility. For event‑driven, short‑lived tasks, Lambda is ideal. I evaluate based on workload 
+characteristics, team skillset, and operational overhead.
 
 👥 Stakeholder Communication
 Q: How do you present architecture trade‑offs to business stakeholders?
-A: I avoid jargon and focus on business impact. For example: “Option A reduces cost by 20% but increases latency by 50ms; Option B costs more but ensures sub‑second response times.” I use diagrams and migration roadmaps to make decisions transparent and collaborative.
+A: I avoid jargon and focus on business impact. For example: “Option A reduces cost by 20% but increases latency by 50ms; Option B costs more but ensures sub‑second response times.” I use diagrams and migration 
+roadmaps to make decisions transparent and collaborative.
 
 🧠 Scenario‑Based
 Q: You need to migrate a legacy monolithic app to AWS. What’s your approach?
