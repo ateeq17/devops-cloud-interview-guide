@@ -1,26 +1,33 @@
 🔑 AWS Well‑Architected Framework
 Q: How do you apply the AWS Well‑Architected Framework in your designs?
-A: I use the five pillars — Operational Excellence, Security, Reliability, Performance Efficiency, and Cost Optimization — as a checklist during design reviews. For example, under Security I enforce IAM least privilege and encryption at rest/in transit. Under Reliability, I design multi‑AZ deployments and automated backups. I document trade‑offs and validate workloads against these pillars before production cutover.
+A: I use the five pillars — Operational Excellence, Security, Reliability, Performance Efficiency, and Cost Optimization — as a checklist during design reviews. For example, under Security I enforce IAM 
+least privilege and encryption at rest/in transit. Under Reliability, I design multi‑AZ deployments and automated backups. I document trade‑offs and validate workloads against these pillars before production 
+cutover.
 
 ☁️ Multi‑Account Strategy
 Q: What’s your approach to multi‑account governance in AWS?
-A: I recommend using AWS Organizations + Control Tower to enforce guardrails. Accounts are segmented by OU (Prod, Dev, Sandbox). Shared services like logging and security are centralized. This ensures isolation, compliance, and easier billing management. I also apply SCPs (Service Control Policies) to restrict risky actions across accounts.
+A: I recommend using AWS Organizations + Control Tower to enforce guardrails. Accounts are segmented by OU (Prod, Dev, Sandbox). Shared services like logging and security are centralized. This ensures isolation, 
+compliance, and easier billing management. I also apply SCPs (Service Control Policies) to restrict risky actions across accounts.
 
 🔒 Security Best Practices
 Q: How do you enforce least privilege in AWS IAM?
-A: I start with role‑based access control, using IAM roles instead of long‑lived keys. Policies are scoped to specific actions and resources. I enable IAM Access Analyzer to detect overly permissive policies. For workloads, I use instance profiles and short‑lived credentials via STS. Regular audits are done with Security Hub and GuardDuty.
+A: I start with role‑based access control, using IAM roles instead of long‑lived keys. Policies are scoped to specific actions and resources. I enable IAM Access Analyzer to detect overly permissive policies. 
+For workloads, I use instance profiles and short‑lived credentials via STS. Regular audits are done with Security Hub and GuardDuty.
 
 ⚙️ Networking & Connectivity
 Q: How do you design hybrid connectivity between on‑premises and AWS?
-A: I use AWS Site‑to‑Site VPN for quick encrypted connectivity, and Direct Connect for dedicated low‑latency links. For scalability, I centralize routing with Transit Gateway. I also design failover — VPN as backup to Direct Connect — and enforce segmentation with multiple VPCs and route tables.
+A: I use AWS Site‑to‑Site VPN for quick encrypted connectivity, and Direct Connect for dedicated low‑latency links. For scalability, I centralize routing with Transit Gateway. I also design failover — VPN 
+as backup to Direct Connect — and enforce segmentation with multiple VPCs and route tables.
 
 🚀 Scalability & High Availability
 Q: How do you design for high availability in AWS?
-A: I deploy workloads across multiple AZs, use Auto Scaling Groups for EC2, and Aurora Multi‑AZ for databases. For global workloads, I use Route 53 latency‑based routing and Global Accelerator. I also design stateless applications where possible, so scaling horizontally is easier.
+A: I deploy workloads across multiple AZs, use Auto Scaling Groups for EC2, and Aurora Multi‑AZ for databases. For global workloads, I use Route 53 latency‑based routing and Global Accelerator. I also design 
+stateless applications where possible, so scaling horizontally is easier.
 
 💰 Cost Optimization
 Q: How do you balance cost and performance in AWS?
-A: I right‑size instances using CloudWatch metrics, leverage Savings Plans/Reserved Instances for predictable workloads, and use Spot Instances for non‑critical jobs. I also recommend S3 lifecycle policies for storage optimization and CloudFront caching to reduce data transfer costs.
+A: I right‑size instances using CloudWatch metrics, leverage Savings Plans/Reserved Instances for predictable workloads, and use Spot Instances for non‑critical jobs. I also recommend S3 lifecycle policies for 
+storage optimization and CloudFront caching to reduce data transfer costs.
 
 🔄 Automation & IaC
 Q: How do you ensure consistency in infrastructure deployments?
