@@ -1,4 +1,6 @@
-AWS VPC Endpoint is a service that allows you to privately connect your VPC to supported AWS services and VPC endpoint services, without requiring an internet gateway, NAT device, VPN, or Direct Connect. Traffic stays entirely within the AWS network, improving security and reducing costs.
+AWS VPC Endpoint is a service that allows you to privately connect your VPC to supported AWS services and VPC endpoint services, 
+without requiring an internet gateway, NAT device, VPN, or Direct Connect. Traffic stays entirely within the AWS network, improving security 
+and reducing costs.
 
 Key Features
 Private Connectivity: Access AWS services without exposing traffic to the public internet.
