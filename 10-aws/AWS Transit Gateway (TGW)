@@ -1,4 +1,6 @@
-AWS Transit Gateway (TGW) is a service that acts like a central hub to connect multiple VPCs and on-premises networks together. Instead of creating many individual VPC peering connections (which can get messy), Transit Gateway simplifies networking by providing a scalable, hub-and-spoke model.
+AWS Transit Gateway (TGW) is a service that acts like a central hub to connect multiple VPCs and on-premises networks together. 
+Instead of creating many individual VPC peering connections (which can get messy), Transit Gateway simplifies networking by providing a 
+scalable, hub-and-spoke model.
 
 Key Features
 Centralized Connectivity: Connects multiple VPCs, VPNs, and Direct Connect gateways through one hub.
