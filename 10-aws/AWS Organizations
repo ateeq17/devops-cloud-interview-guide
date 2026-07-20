@@ -1,4 +1,5 @@
-AWS Organizations is a service that helps you centrally manage and govern multiple AWS accounts. It’s especially useful for enterprises, startups, or any team that needs to operate with multiple accounts but still maintain control, security, and cost efficiency.
+AWS Organizations is a service that helps you centrally manage and govern multiple AWS accounts. It’s especially useful for enterprises, startups, or any team that needs to operate with multiple accounts 
+but still maintain control, security, and cost efficiency.
 
 Key Features of AWS Organizations
 Multi-Account Management: Create and manage multiple AWS accounts under a single organization.
