@@ -1,4 +1,5 @@
-AWS NAT Gateway is a managed service that allows instances in a private subnet of your VPC to connect to the internet (or other AWS services) while preventing inbound connections from the internet. It’s essentially a secure “doorway” for outbound traffic.
+AWS NAT Gateway is a managed service that allows instances in a private subnet of your VPC to connect to the internet (or other AWS services) while preventing inbound connections from the internet. 
+It’s essentially a secure “doorway” for outbound traffic.
 
 Key Features
 Outbound Internet Access: Lets private subnet resources (like EC2 instances) access the internet for updates, patches, or APIs.
