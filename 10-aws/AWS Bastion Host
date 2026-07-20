@@ -1,4 +1,5 @@
-AWS Bastion Host is a special-purpose EC2 instance that acts as a secure entry point into your private VPC. Instead of exposing all your private instances to the internet, you use the bastion host as a controlled gateway for administrative access (usually SSH or RDP).
+AWS Bastion Host is a special-purpose EC2 instance that acts as a secure entry point into your private VPC. Instead of exposing all your private instances to the internet, you use the bastion host as a 
+controlled gateway for administrative access (usually SSH or RDP).
 
 Key Features
 Secure Access: Provides a single hardened entry point into private subnets.
